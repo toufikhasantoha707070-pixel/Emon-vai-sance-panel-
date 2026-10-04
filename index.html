@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APK Download</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#0b1020;color:#fff;min-height:100vh;display:grid;place-items:center;padding:20px}
+.card{width:min(520px,100%);background:#151c33;border:1px solid #2c385c;border-radius:22px;padding:28px;box-shadow:0 18px 60px #0007}
+h1{margin:0 0 8px;font-size:28px}.sub{color:#b8c2df;line-height:1.6}
+input{width:100%;padding:14px;border-radius:12px;border:1px solid #3a466b;background:#0e1529;color:white;margin:12px 0;font-size:16px}
+button,a.btn{display:block;width:100%;padding:14px;border:0;border-radius:12px;background:#4f7cff;color:white;text-align:center;text-decoration:none;font-weight:700;font-size:16px;cursor:pointer;margin-top:10px}
+.secondary{background:#242f50!important}.hidden{display:none}.msg{margin-top:14px;padding:12px;border-radius:12px;background:#0e1529;color:#cbd5f1;line-height:1.5}
+.small{font-size:13px;color:#98a5c9;margin-top:12px}
+</style>
+</head>
+<body>
+<main class="card">
+<h1>APK Download</h1>
+<p class="sub">ডাউনলোডের আগে Facebook ও TikTok follow করুন এবং পাসওয়ার্ড দিন। তারপর আপনার Gmail দিয়ে approval request পাঠান।</p>
+
+<a class="btn secondary" href="https://www.facebook.com/share/1KDLZpYjRC/" target="_blank" rel="noopener">Facebook Follow</a>
+<a class="btn secondary" href="https://www.tiktok.com/@ffidsaler1587?_r=1&_t=ZS-9AGxok5cB2C" target="_blank" rel="noopener">TikTok Follow</a>
+
+<input id="password" type="password" placeholder="Password">
+<button onclick="unlock()">Continue</button>
+
+<section id="gate" class="hidden">
+<input id="email" type="email" placeholder="আপনার Gmail address">
+<button onclick="requestApproval()">Request Gmail Approval</button>
+<div id="msg" class="msg hidden"></div>
+</section>
+
+<section id="download" class="hidden">
+<div class="msg">Approval সম্পন্ন হলে নিচের Download button ব্যবহার করুন।</div>
+<a class="btn" href="assets/EMON-Mod-manu-PROXY-TNT-location-panel-V18.apk" download>Download APK</a>
+</section>
+
+<p class="small">নিরাপত্তার জন্য এই সাইট কখনও আপনার Gmail password চাইবে না।</p>
+</main>
+
+<script>
+const PASS = "rohit1587";
+function unlock(){
+  if(document.getElementById('password').value === PASS){
+    document.getElementById('gate').classList.remove('hidden');
+    document.getElementById('msg').classList.add('hidden');
+  } else alert('ভুল password');
+}
+function requestApproval(){
+  const email = document.getElementById('email').value.trim();
+  const msg = document.getElementById('msg');
+  if(!email || !email.includes('@')){ alert('সঠিক Gmail দিন'); return; }
+  msg.classList.remove('hidden');
+  msg.textContent = 'Approval request তৈরি হয়েছে। Production version-এ এখানে আপনার secure backend-এ request যাবে এবং admin approval-এর পর download unlock হবে।';
+  // Demo only: do not pretend that an email was actually sent.
+}
+</script>
+</body>
+</html>
